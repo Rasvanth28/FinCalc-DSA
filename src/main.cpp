@@ -35,10 +35,11 @@ int main()
             // Need to implement
             break;
         case 2:
-            std::cout << "Deposits module placeholder.\n";
-            // Need to implement;
+            Deposits::showMenu();
+            break;
         case 3:
             std::cout << "Credit/Debit module placeholder.\n";
+            // Need to implement
             break;
         case 4:
             std::cout << "Bye!\n";
