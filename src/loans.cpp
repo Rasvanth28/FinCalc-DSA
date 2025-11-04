@@ -26,6 +26,38 @@ namespace Loans {
                       << ", Rate=" << l.rate
                       << ", Years=" << l.years << '\n';
     }
+    
+    void sortLoansByPrincipal(std::vector<Loan>& loans) {
+        std::vector<double> principals;
+        for (const auto& l : loans)
+           principals.push_back(l.principal);
+        
+        Utilities::bubbleSort(principals);
+        std::cout << "\n--- Loans Sorted by Principal ---\n";
+        for (double p : principals)
+           for (const auto& l : loans)
+              if (l.principal == p)
+                 std::cout << l.name << ": " << p << " (" << l.rate << "% for " << l.years << " years)\n";
+    }
+    
+    void searchLoanByName(const std::vector<Loan>& loans) {
+        std::vector<std::string> names;
+        for (const auto& l : loans)
+           names.push_back(l.name);
+        
+        std::cout << "\nEnter name to search: ";
+        std::string key;
+        std::cin >> key;
+
+        int index = Utilities::linearSearch(names, key);
+        if (index != -1) {
+            const Loan& l = loans[index];
+            std::cout << "\nFound: " << l.name << " → Principal=" << l.principal
+                      << ", Rate=" << l.rate << ", Years=" << l.years << "\n";
+        } else {
+            std::cout << "Loan not found.\n";
+        }
+    }
 
     void showMenu() {
         std::vector<Loan> loans;
@@ -46,7 +78,14 @@ namespace Loans {
                 std::cout << "EMI (Monthly): " << calcEMI(l) << "\n";
             } else if (ch == 2) {
                 displayAll(loans);
-            } else break;
+            } else if (ch == 3) {
+                sortLoansByPrincipal(loans);
+            } else if (ch == 4) {
+                searchLoanByName(loans);
+            } else {
+                break;
+            }
         }
     }
 }
+

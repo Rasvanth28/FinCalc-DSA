@@ -15,4 +15,6 @@ namespace Loans {
     double calcCompound(const Loan& loan);
     double calcEMI(const Loan& loan);
     void displayAll(const std::vector<Loan>& loans);
+    void sortLoansByPrincipal(std::vector<Loan>& loans);
+    void searchLoanByName(const std::vector<Loan>& loans);
 }
