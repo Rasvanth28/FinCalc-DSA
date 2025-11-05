@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "utilities.hpp"
+#include "loans.hpp"
 
 static void printMainMenu()
 {
@@ -31,8 +32,7 @@ int main()
         switch (choice)
         {
         case 1:
-            std::cout << "Loans module placeholder.\n";
-            // Need to implement
+            Loans::showMenu();
             break;
         case 2:
             Deposits::showMenu();
