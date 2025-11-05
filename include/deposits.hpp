@@ -9,18 +9,23 @@ struct Deposit
     double rate;
     int months;
 
-    // for sorting (insertionSort)
-    bool operator<(const Deposit &other) const
-    {
-        return amount < other.amount; // sort by amount
-    }
-
-    // for binarySearch
     bool operator==(const Deposit &other) const
     {
-        return name == other.name; // search by name
+        return name == other.name;
+    }
+    bool operator<(const Deposit &other) const
+    {
+        return name < other.name;
     }
 };
+
+namespace DepositSort
+{
+    inline bool byName(const Deposit &a, const Deposit &b) { return a.name < b.name; }
+    inline bool byAmount(const Deposit &a, const Deposit &b) { return a.amount < b.amount; }
+    inline bool byRate(const Deposit &a, const Deposit &b) { return a.rate < b.rate; }
+    inline bool byMonths(const Deposit &a, const Deposit &b) { return a.months < b.months; }
+}
 
 namespace Deposits
 {
@@ -28,4 +33,5 @@ namespace Deposits
     double calcSimple(const Deposit &d);
     double calcMaturity(const Deposit &d);
     void displayAll(const std::vector<Deposit> &list);
+
 }
