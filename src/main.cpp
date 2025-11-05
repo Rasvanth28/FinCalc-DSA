@@ -38,8 +38,7 @@ int main()
             Deposits::showMenu();
             break;
         case 3:
-            std::cout << "Credit/Debit module placeholder.\n";
-            // Need to implement
+            Credits::showMenu();
             break;
         case 4:
             std::cout << "Bye!\n";

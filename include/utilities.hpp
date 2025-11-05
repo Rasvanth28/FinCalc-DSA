@@ -6,6 +6,7 @@
 #include <limits>
 #include "deposits.hpp"
 #include "loans.hpp"
+#include "credit.hpp"
 
 namespace Utilities
 {
