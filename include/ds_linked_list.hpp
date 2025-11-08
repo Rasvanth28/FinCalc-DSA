@@ -19,6 +19,8 @@ public:
         n->next = std::move(head_);
         head_ = std::move(n);
     }
+
+    // returns false if empty
     bool popFront(T &out)
     {
         if (!head_)
@@ -27,5 +29,6 @@ public:
         head_ = std::move(head_->next);
         return true;
     }
+
     bool empty() const { return !head_; }
 };

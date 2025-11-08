@@ -5,15 +5,20 @@
 struct CreditRecord
 {
     std::string name;
-    double amount;
-    double interest;
-    int months;
+    double amount;   // principal / outstanding
+    double interest; // percentage
+    int months;      // tenure
 };
+
+namespace CreditSort
+{
+    inline bool byName(const CreditRecord &a, const CreditRecord &b) { return a.name < b.name; }
+    inline bool byAmount(const CreditRecord &a, const CreditRecord &b) { return a.amount < b.amount; }
+    inline bool byInterest(const CreditRecord &a, const CreditRecord &b) { return a.interest < b.interest; }
+    inline bool byMonths(const CreditRecord &a, const CreditRecord &b) { return a.months < b.months; }
+}
 
 namespace Credits
 {
     void showMenu();
-    void displayAll(const std::vector<CreditRecord> &list);
-    void simulateFIFO(const std::vector<CreditRecord> &list);
-    void simulateLIFO(const std::vector<CreditRecord> &list);
 }
