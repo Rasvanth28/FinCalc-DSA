@@ -11,7 +11,6 @@ Jatin 26000 11.2 20
 Kavya 17000 9 9
 Lohith 40000 15 36
 Meena 12000 8.5 6
-Meera 5000 2.5 12
 Nikhil 23000 12 18
 Oviya 14000 9.5 10
 Pranav 35000 14 24
