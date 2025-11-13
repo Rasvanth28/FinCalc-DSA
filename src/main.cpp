@@ -375,7 +375,6 @@ int main()
             break;
         case 4:
         {
-            // sizes you want on the graph
             std::vector<int> sizes = {1000, 2000, 4000, 6000, 8000, 10000};
             std::cout << "\nRunning benchmarks...\n";
             runDepositBenchmark(sizes);
