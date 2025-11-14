@@ -113,7 +113,8 @@ namespace Credits
             {
                 CreditRecord c;
                 std::cout << "Name: ";
-                std::cin >> c.name;
+                std::getline(std::cin >> std::ws, c.name); // ⭐ full name with spaces
+
                 std::cout << "Amount: ";
                 std::cin >> c.amount;
                 std::cout << "Interest (%): ";
@@ -182,10 +183,10 @@ namespace Credits
                 }
 
                 std::cout << "\nSearch by:\n"
-                          << "1) Name (O(1))\n"
-                          << "2) Amount (O(1) to list)\n"
-                          << "3) Interest (O(1) to list)\n"
-                          << "4) Months (O(1) to list)\n"
+                          << "1) Name\n"
+                          << "2) Amount\n"
+                          << "3) Interest\n"
+                          << "4) Months\n"
                           << "Choice: ";
                 int s;
                 std::cin >> s;
@@ -194,7 +195,8 @@ namespace Credits
                 {
                     std::cout << "Enter name: ";
                     std::string key;
-                    std::cin >> key;
+                    std::getline(std::cin >> std::ws, key); // ⭐ full name with spaces
+
                     std::size_t idx;
                     if (nameIndex.get(key, idx))
                     {
@@ -274,7 +276,8 @@ namespace Credits
             {
                 std::cout << "Enter name to update: ";
                 std::string key;
-                std::cin >> key;
+                std::getline(std::cin >> std::ws, key); // ⭐ full name with spaces
+
                 std::size_t idx;
                 if (!nameIndex.get(key, idx))
                 {
@@ -299,7 +302,8 @@ namespace Credits
             {
                 std::cout << "Enter name to delete: ";
                 std::string key;
-                std::cin >> key;
+                std::getline(std::cin >> std::ws, key); // ⭐ full name with spaces
+
                 std::size_t idx;
                 if (!nameIndex.get(key, idx))
                 {

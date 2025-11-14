@@ -125,8 +125,10 @@ namespace Loans
             if (ch == 1) // add (cheap)
             {
                 Loan l;
+
                 std::cout << "Name: ";
-                std::cin >> l.name;
+                std::getline(std::cin >> std::ws, l.name); // ⭐ FIXED: full name with spaces
+
                 std::cout << "Principal: ";
                 std::cin >> l.principal;
                 std::cout << "Rate (%): ";
@@ -137,7 +139,6 @@ namespace Loans
                 loans.push_back(l);
                 std::size_t idx = loans.size() - 1;
 
-                // incremental index updates
                 nameIndex.put(l.name, idx);
                 principalIndex.put(l.principal, idx);
                 rateIndex.put(l.rate, idx);
@@ -145,7 +146,6 @@ namespace Loans
 
                 viewOrder.push_back(idx);
 
-                // show calcs
                 std::cout << "Simple Interest: " << calcSimple(l) << "\n";
                 std::cout << "Compound Interest: " << calcCompound(l) << "\n";
                 std::cout << "EMI (monthly): " << calcEMI(l) << "\n";
@@ -213,7 +213,8 @@ namespace Loans
                 {
                     std::cout << "Enter name: ";
                     std::string key;
-                    std::cin >> key;
+                    std::getline(std::cin >> std::ws, key); // ⭐ FIXED
+
                     std::size_t idx;
                     if (nameIndex.get(key, idx))
                     {
@@ -293,7 +294,8 @@ namespace Loans
             {
                 std::cout << "Enter name to update: ";
                 std::string key;
-                std::cin >> key;
+                std::getline(std::cin >> std::ws, key); // ⭐ FIXED
+
                 std::size_t idx;
                 if (!nameIndex.get(key, idx))
                 {
@@ -318,7 +320,8 @@ namespace Loans
             {
                 std::cout << "Enter name to delete: ";
                 std::string key;
-                std::cin >> key;
+                std::getline(std::cin >> std::ws, key); // ⭐ FIXED
+
                 std::size_t idx;
                 if (!nameIndex.get(key, idx))
                 {

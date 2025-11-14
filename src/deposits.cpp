@@ -124,7 +124,8 @@ namespace Deposits
             {
                 Deposit d;
                 std::cout << "Name: ";
-                std::cin >> d.name;
+                std::getline(std::cin >> std::ws, d.name); // ⭐ supports spaces
+
                 std::cout << "Amount: ";
                 std::cin >> d.amount;
                 std::cout << "Rate (%): ";
@@ -210,7 +211,7 @@ namespace Deposits
                 {
                     std::cout << "Enter name: ";
                     std::string key;
-                    std::cin >> key;
+                    std::getline(std::cin >> std::ws, key); // ⭐ supports spaces
 
                     std::size_t idx;
                     if (nameIndex.get(key, idx))
@@ -294,7 +295,8 @@ namespace Deposits
             {
                 std::cout << "Enter name to update: ";
                 std::string key;
-                std::cin >> key;
+                std::getline(std::cin >> std::ws, key); // ⭐ supports spaces
+
                 std::size_t idx;
                 if (!nameIndex.get(key, idx))
                 {
@@ -320,7 +322,8 @@ namespace Deposits
             {
                 std::cout << "Enter name to delete: ";
                 std::string key;
-                std::cin >> key;
+                std::getline(std::cin >> std::ws, key); // ⭐ supports spaces
+
                 std::size_t idx;
                 if (!nameIndex.get(key, idx))
                 {
